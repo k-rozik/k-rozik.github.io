@@ -7,7 +7,7 @@
 
         <h1> JavaScript dynamique</h1>
 
-        <p>faire apparaitre un textt:</p>
+        <p>Faire apparaitre une reponse:</p>
         
         <button type="button" onclick="myFunction()">Réponse</button>
         
@@ -20,16 +20,13 @@
         </script>
         
   
-<h2>Formulaire</h2>
+<h2>Formulaire d'envoi</h2>
 
 <form action="/action_page.php">
   <label for="fname">Prénom:</label><br>
   <input type="text" id="fname" name="fname" value=""><br>
   <label for="lname">Nom:</label><br>
   <input type="text" id="lname" name="lname" value=""><br>
-  
-
-  <form>
     <input type="radio" id="classe" name="classe" value="6ème">
     <label for="6ème">6A</label><br>
     <input type="radio" id="classe" name="classe" value="6ème">
@@ -37,7 +34,7 @@
     <input type="radio" id="classe" name="classe" value="6ème">
     <label for="6ème">6C</label><br>
   </form> 
-  <button type="button" onclick="myFunction()">Envoyer</button>
+  <button type="button" onclick="myFunction()">Soumettre</button>
         <script>
         function myFunction() { 
           document.getElementById("mail").innerHTML = <p id="mail"><a href="mailto:caroline.pras@ac-versailles.fr">?</a></p>
@@ -62,39 +59,6 @@
 <a href="mailto:caroline.pras@ac-versailles.fr">Envoyer vos réponses</a>
 
 
-<h1>Glisser-Déposer</h1>
-<p>Replace les éléments au bon endroit</p>
 
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-  }
-  </style>
-  <script>
-  function allowDrop(ev) {
-    ev.preventDefault();
-  }
-  
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-  
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
-  </script>
-  </head>
-  <body>
-  
-  <p>Drag l'image dans le rectangle:</p>
-  
-  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-  <br>
-  <img id="drag1" src="/images/2709.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
-  
   </body>
   </html>
