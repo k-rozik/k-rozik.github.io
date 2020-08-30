@@ -1,105 +1,145 @@
-
 <!DOCTYPE html>
 <html>
-<body>
+  <!--
+    Un document HTML est composé de balise hierarchisé qui doit
+    suivre certaines règles.
+    On met generalement un balise system (commence par ! pour indiqué
+    que lon utilise bien l'html) `<!DOCTYPE html>`
+    La balise principale est <html> qui doit comporté exactement 2 balises.
+    <head> et <body>.
+    Head contient les meta-données de la page et accepte donc les balises
+    <meta> <title> <link> <script> et <style>
+    Body contient la partie graphique de la page et accepte toutes les balises
+    autre que celle de Head. A l'excpetion de script qui est souvent renseigné
+    à la fin de la page pour obtimiser les performances d'affichage.
+   -->
+  <head>
+    <!--
+      Il peut etre plus prudent de specifier l'encoding d'un fichier
+      texte. Ici 'UTF-8', Il s'agit de la methode pour traduire un nombre en
+      caractere. Si tu utilise des accents il existe de nombreux codage
+      different.
+     -->
+    <meta charset="utf-8">
     <title>Exercices</title>
+  </head>
+  <body>
 
+<!-- -------------------------------- -->
 
-        <h1> JavaScript dynamique</h1>
+    <h1> JavaScript dynamique</h1>
 
-        <p>Apparition réponse:</p>
-        
-        <button type="button" onclick="myFunction()">Réponse</button>
-        <p id="demo">?</p>
-        <script>
-        function myFunction() { 
-          document.getElementById("demo").innerHTML = "VRAI" ;
-        }
-        </script>
-    
+    <p>Apparition réponse:</p>
 
-
-<h2>Formulaire d'envoi</h2>
-
-<form action="/action_page.php">
-  <label for="fname">Prénom:</label><br>
-  <input type="text" id="fname" name="fname" value=""><br>
-  <label for="lname">Nom:</label><br>
-  <input type="text" id="lname" name="lname" value=""><br>
-  
-
-  <form>
-    <input type="radio" id="classe" name="classe" value="6ème">
-    <label for="6ème">6A</label><br>
-    <input type="radio" id="classe" name="classe" value="6ème">
-    <label for="6ème">6B</label><br>
-    <input type="radio" id="classe" name="classe" value="6ème">
-    <label for="6ème">6C</label><br>
-  </form> 
-  <button type="button" onclick="myFunction()"><p id="mail"><a href="mailto:caroline.pras@ac-versailles.fr">Envoyer vos réponses</a></p></button>
-        <script>
-        function myFunction() { 
-          document.getElementById("mail").innerHTML = "Envoyer"
-        }
-        </script>
-</labelbel>
-</form> 
-
-
-    
-
-<h2 style="color:blueviolet;"> IMAGE </h2>
-</body>
-</html>
-<a href="default.asp">
-    <img src="/images/2709.png" alt="http://www.W3Schools.com" style="width:60px;height:60px;">
-  </a>
-
-<h2>Site internet</h2>
-<a href="https://www.genial.ly/login" cible = "_blank" > Accéder au Genial'ly</a>
-
-<br>
-
-<a href="mailto:caroline.pras@ac-versailles.fr">Envoyer vos réponses</a>
-
-
-//******
-<style>
-    #div1, #div2 {
-      float: left;
-      width: 100px;
-      height: 35px;
-      margin: 10px;
-      padding: 10px;
-      border: 1px solid black;
-    }
-    </style>
+    <button type="button" onclick="myFunction()">Réponse</button>
+    <p id="demo">?</p>
     <script>
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
-    
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-    }
-    
-    function drop(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
+    function myFunction() {
+      document.getElementById("demo").innerHTML = "VRAI" ;
     }
     </script>
-    </head>
-    <body>
-    
+
+<!-- -------------------------------- -->
+
+    <h2>Formulaire d'envoi</h2>
+
+    <form action="/action_page.php">
+      <!--
+        Un formulaire <form> indique un groupe de champs d'entrée pour
+        l'utlisateur mais egalement une destination pour la sauvegarde de ces
+        données. Ici la sauvegarde ce fera sur le fichier `/action_page.php`.
+        Ce pendant ce site etant static cela ne fonctionnera pas.
+         -->
+      <label for="fname">Prénom:</label><br>
+      <input type="text" id="fname" name="fname" value=""><br>
+      <label for="lname">Nom:</label><br>
+      <input type="text" id="lname" name="lname" value=""><br>
+
+      <!--
+        Les balises <input> et <label> sont reliées entre elle:
+        input.id -> label.for
+        Mais attention, l'ID doit etre unique dans tout le document
+       -->
+      <input type="radio" id="classe6A" name="classe" value="6ème">
+      <label for="classe6A">6A</label><br>
+      <input type="radio" id="classe6B" name="classe" value="6ème">
+      <label for="classe6B">6B</label><br>
+      <input type="radio" id="classe6C" name="classe" value="6ème">
+      <label for="classe6C">6C</label><br>
+
+      <!-- Je ne suis pas sur de ce qu'il est voulu ici -->
+      <button type="button" onclick="myFunction()">
+        <p id="mail"><a href="mailto:caroline.pras@ac-versailles.fr">Envoyer vos réponses</a></p>
+      </button>
+
+
+      <script>
+      function myFunction() {
+        document.getElementById("mail").innerHTML = "Envoyer"
+      }
+      </script>
+    </form>
+
+<!-- -------------------------------- -->
+
+
+    <h2 style="color:blueviolet;"> IMAGE </h2>
+
+    <a href="default.asp">
+      <img src="/images/2709.png" alt="http://www.W3Schools.com" style="width:60px;height:60px;">
+    </a>
+
+    <h2>Site internet</h2>
+    <!--
+      l'attribue `target="_blank"` permet de specifier que le lien doit
+      s'ouvrir dans une nouvelle fenêtre
+    -->
+    <a href="https://www.genial.ly/login" target="_blank" > Accéder au Genial'ly</a>
+
+    <br>
+
+    <a href="mailto:caroline.pras@ac-versailles.fr">Envoyer vos réponses</a>
+
+
+<!-- -------------------------------- -->
+
+    <style>
+      #div1, #div2 {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+
+
     <h2>Drag&Drop</h2>
     <p>Déplacer des éléments.</p>
-    
+
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
       <img src="/images/2709.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
     </div>
-    
+
     <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    
-</body>
+
+<!-- -------------------------------- -->
+
+  </body>
 </html>
